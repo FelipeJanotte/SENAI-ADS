@@ -35,6 +35,7 @@ public class EntradaSaida {
     public static int solicitaQtdeAberturas (String abertura) {
         int qtdeAberturas = Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade de " + abertura));
         while(qtdeAberturas <= 0) {
+            JOptionPane.showMessageDialog(null, "Quantidade de " + abertura + " nao pode ser menor ou igual a zero!");
             qtdeAberturas = Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade de " + abertura));
         }
         return qtdeAberturas;
