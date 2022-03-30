@@ -6,7 +6,7 @@ import fabricaDeCarros.view.Output;
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class Fabric {
+public class Factory {
     static ArrayList<Car> cars = new ArrayList<>();
 
     public static void createCar() {
@@ -70,7 +70,6 @@ public class Fabric {
 
         Output.displayCarInfos(infos);
     }
-
 
     private static boolean verifyLicensePlateAlreadyExist(String licensePlate){
         for(Car car : cars) {

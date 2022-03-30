@@ -1,7 +1,6 @@
 package fabricaDeCarros.controller;
 
-import fabricaDeCarros.model.Car;
-import fabricaDeCarros.model.Fabric;
+import fabricaDeCarros.model.Factory;
 import fabricaDeCarros.view.*;
 
 public class Control {
@@ -13,17 +12,17 @@ public class Control {
             switch (option) {
                 case 0: {
                     // Create car
-                    Fabric.createCar();
+                    Factory.createCar();
                     break;
                 }
                 case 1: {
                     // Sell a car
-                    Fabric.sellCar();
+                    Factory.sellCar();
                     break;
                 }
                 case 2: {
                     // Show car infos
-                    Fabric.showCarInfos();
+                    Factory.showCarInfos();
                     break;
                 }
             }
