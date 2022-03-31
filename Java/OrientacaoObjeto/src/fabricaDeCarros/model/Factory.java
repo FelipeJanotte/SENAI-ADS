@@ -1,7 +1,6 @@
 package fabricaDeCarros.model;
 
-import fabricaDeCarros.view.Input;
-import fabricaDeCarros.view.Output;
+import fabricaDeCarros.view.*;
 
 import javax.swing.*;
 import java.util.ArrayList;

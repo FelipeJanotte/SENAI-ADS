@@ -1,7 +1,5 @@
 package fabricaDeCarros.model;
 
-import java.util.Locale;
-
 public class Car {
     // What we need to create a car? // O que precisamos para criar um carro?
     // * Identification. // Identificacao.
