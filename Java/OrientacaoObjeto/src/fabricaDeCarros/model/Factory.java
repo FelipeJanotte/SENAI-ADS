@@ -34,7 +34,7 @@ public class Factory {
     }
 
     public static void sellCar() {
-        if(!verifyHasCarsCreated()) {
+        if(cars.isEmpty()) {
             Output.displayWarningCarsNotCreated();
             return;
         }
@@ -57,7 +57,7 @@ public class Factory {
     }
 
     public static void showCarInfos(){
-        if(!verifyHasCarsCreated()){
+        if(cars.isEmpty()){
             Output.displayWarningCarsNotCreated();
             return;
         }
@@ -79,7 +79,4 @@ public class Factory {
         return false;
     }
 
-    private static boolean verifyHasCarsCreated() {
-        return cars.size() != 0;
-    }
 }
