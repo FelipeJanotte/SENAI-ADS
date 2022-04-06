@@ -15,7 +15,7 @@ public class Controladora {
 
     public void exibeMenu() {
         int opcao;
-        do{
+        do {
             opcao = EntradaSaida.solicitaOpcao();
 
             switch (opcao) {
@@ -28,17 +28,17 @@ public class Controladora {
                     int qtdeJanelas = EntradaSaida.solicitaQtdeAberturas("janelas");
 
                     ArrayList<Aberturas> listaDePortas = new ArrayList<>();
-                    for(int i = 0; i < qtdePortas; i++){
+                    for (int i = 0; i < qtdePortas; i++) {
                         Porta porta = new Porta();
-                        porta.setDescricao(EntradaSaida.solicitaDescricao("porta", (i+1)));
+                        porta.setDescricao(EntradaSaida.solicitaDescricao("porta", (i + 1)));
                         porta.setEstado(EntradaSaida.solicitaEstado("porta"));
                         listaDePortas.add(porta);
                     }
 
                     ArrayList<Aberturas> listaDeJanelas = new ArrayList<>();
-                    for(int i = 0; i < qtdeJanelas; i++){
+                    for (int i = 0; i < qtdeJanelas; i++) {
                         Janela janela = new Janela();
-                        janela.setDescricao(EntradaSaida.solicitaDescricao("janela", (i+1)));
+                        janela.setDescricao(EntradaSaida.solicitaDescricao("janela", (i + 1)));
                         janela.setEstado(EntradaSaida.solicitaEstado("janela"));
                         listaDePortas.add(janela);
                     }
@@ -48,57 +48,59 @@ public class Controladora {
                     System.out.println("Descricao da casa: " + casa.getDescricao());
                     System.out.println("Cor da casa: " + casa.getCor());
 
-                    for(Aberturas porta : casa.getListaDePortas()){
+                    for (Aberturas porta : casa.getListaDePortas()) {
                         System.out.println("Descricao da porta: " + porta.getDescricao());
-                        System.out.println("Estado da porta: " + porta.getEstado() + "\n" );
+                        System.out.println("Estado da porta: " + porta.getEstado() + "\n");
                     }
 
-                    for(Aberturas janela : casa.getListaDeJanelas()){
+                    for (Aberturas janela : casa.getListaDeJanelas()) {
                         System.out.println("Descricao da porta: " + janela.getDescricao());
-                        System.out.println("Estado da porta: " + janela.getEstado() + "\n" );
+                        System.out.println("Estado da porta: " + janela.getEstado() + "\n");
                     }
                     break;
                 }
                 case 1: {
-                    if(casa == null){
+                    if (casa == null) {
                         JOptionPane.showMessageDialog(null, "Casa ainda nao construida!");
-                        break;
-                    }
-                    String tipoAbertura = EntradaSaida.solicitaTipoAbertura();
-
-                    ArrayList<Aberturas> listaDeAberturas = new ArrayList<>();
-
-                    if(tipoAbertura.equals("porta")) {
-                        listaDeAberturas = this.casa.getListaDePortas();
                     } else {
-                        listaDeAberturas = this.casa.getListaDeJanelas();
-                    }
+                        String tipoAbertura = EntradaSaida.solicitaTipoAbertura();
 
-                    int posicao = EntradaSaida.solicitaAberturaMover(listaDeAberturas);
-                    int novoEstado = 0;
+                        ArrayList<Aberturas> listaDeAberturas = new ArrayList<>();
 
-                    if(posicao != -1) {
-                        novoEstado = EntradaSaida.solicitaEstado(tipoAbertura);
-                        Aberturas abertura = this.casa.retornaAbertura(posicao, tipoAbertura);
-                        this.casa.moverAbertura(abertura, novoEstado);
-                        System.out.println("Novo estado da " + tipoAbertura + ": " + abertura.getEstado());
-                    } else {
-                        EntradaSaida.exibeMsgAbertura();
+                        if (tipoAbertura.equals("porta")) {
+                            listaDeAberturas = this.casa.getListaDePortas();
+                        } else {
+                            listaDeAberturas = this.casa.getListaDeJanelas();
+                        }
+
+                        int posicao = EntradaSaida.solicitaAberturaMover(listaDeAberturas);
+                        int novoEstado = 0;
+
+                        if (posicao != -1) {
+                            novoEstado = EntradaSaida.solicitaEstado(tipoAbertura);
+                            Aberturas abertura = this.casa.retornaAbertura(posicao, tipoAbertura);
+                            this.casa.moverAbertura(abertura, novoEstado);
+                            System.out.println("Novo estado da " + tipoAbertura + ": " + abertura.getEstado());
+                        } else {
+                            EntradaSaida.exibeMsgAbertura();
+                        }
+
                     }
 
                     break;
                 }
                 case 2: {
-                    if(casa == null){
+                    if (casa == null) {
                         JOptionPane.showMessageDialog(null, "Casa ainda nao construida!");
-                        break;
+                    } else {
+                        String informacoes = this.casa.geraInfoCasa();
+                        EntradaSaida.exibeInforCasa(informacoes);
                     }
-                    String informacoes = this.casa.geraInfoCasa();
-                    EntradaSaida.exibeInforCasa(informacoes);
+
                     break;
                 }
             }
-        } while( opcao != 3 );
+        } while (opcao != 3);
 
         EntradaSaida.exibeMsgEncerrarPrograma();
 
