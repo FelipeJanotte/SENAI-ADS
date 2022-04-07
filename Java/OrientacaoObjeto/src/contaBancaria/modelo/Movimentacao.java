@@ -24,8 +24,8 @@ public class Movimentacao {
     }
 
     public void setData() {
-        this.data = OffsetDateTime.now().getDayOfMonth() + " / "
-                + OffsetDateTime.now().getMonthValue() + " / "
+        this.data = OffsetDateTime.now().getDayOfMonth() + "/"
+                + OffsetDateTime.now().getMonthValue() + "/"
                 + OffsetDateTime.now().getYear();
     }
 
