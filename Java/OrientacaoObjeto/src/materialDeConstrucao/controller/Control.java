@@ -3,8 +3,6 @@ package materialDeConstrucao.controller;
 import materialDeConstrucao.model.*;
 import materialDeConstrucao.view.*;
 
-import javax.swing.*;
-
 public class Control {
     public static void showMenu() {
 

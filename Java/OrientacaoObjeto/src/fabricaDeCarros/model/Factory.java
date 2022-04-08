@@ -2,7 +2,6 @@ package fabricaDeCarros.model;
 
 import fabricaDeCarros.view.*;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class Factory {
@@ -14,17 +13,17 @@ public class Factory {
         for( int i = 0; i < carsQnt; i++ ){
             Car newCar = new Car();
 
-            String licensePlate = JOptionPane.showInputDialog(null, "Qual a placa do " + (i+1) + "o carro?").toLowerCase();
+            String licensePlate = Input.requestLicensePlate((i+1));
             while(verifyLicensePlateAlreadyExist(licensePlate)){
-                JOptionPane.showMessageDialog(null, "Essa placa já existe");
-                licensePlate = JOptionPane.showInputDialog(null, "Qual a placa do " + (i+1) + "o carro?");
+                Output.displayLicensePlateExists();
+                licensePlate = Input.requestLicensePlate((i+1));
             };
             newCar.setLicensePlate(licensePlate);
 
-            String carModel = JOptionPane.showInputDialog(null, "Qual o modelo do " + (i+1) + "o carro?");
+            String carModel = Input.requestCarDescription("modelo", (i+1));
             newCar.setCarModel(carModel);
 
-            String color = JOptionPane.showInputDialog(null, "Qual a cor do " + (i+1) + "o carro?");
+            String color = Input.requestCarDescription("cor", (i+1));
             newCar.setCarColor(color);
 
             cars.add(newCar);
@@ -47,11 +46,8 @@ public class Factory {
                     + cars.get(i).getCarColor();
         }
 
-        JComboBox<String> carsMenu = new JComboBox<>(carOptionsMenu);
-        JOptionPane.showConfirmDialog(null, carsMenu, "Selecione o carro para ser excluido", JOptionPane.OK_CANCEL_OPTION);
-
-        int carToSold = carsMenu.getSelectedIndex();
-        cars.remove(carToSold);
+        int carToSell = Input.requestCarToSell(carOptionsMenu);
+        cars.remove(carToSell);
 
         Output.displaySoldCar();
     }

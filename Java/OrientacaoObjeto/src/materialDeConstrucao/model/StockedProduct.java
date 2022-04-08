@@ -22,10 +22,7 @@ public class StockedProduct {
                     product.getQuantity();
             }
 
-            JComboBox<String> menu = new JComboBox<>(menuOptions);
-            JOptionPane.showConfirmDialog(null, menu, "Selecione um produto para atribuir ao estoque", JOptionPane.OK_CANCEL_OPTION);
-
-            int productIndex = menu.getSelectedIndex(); // Get option index
+            int productIndex = Input.requestProductToSell(menuOptions); // Get option index
             Product product = registeredProducts.get(productIndex); // Get selected product by its index(code)
             int quantity = Input.requestProductQuantity("adicionar ao estoque");
 

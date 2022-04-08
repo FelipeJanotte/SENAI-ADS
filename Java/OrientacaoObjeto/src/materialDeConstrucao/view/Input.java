@@ -62,4 +62,10 @@ public class Input {
         }
         return quantity;
     }
+
+    public static int requestProductToSell(String[] menuOptions){
+        JComboBox<String> menu = new JComboBox<>(menuOptions);
+        JOptionPane.showConfirmDialog(null, menu, "Selecione um produto para atribuir ao estoque", JOptionPane.OK_CANCEL_OPTION);
+        return menu.getSelectedIndex();
+    }
 }

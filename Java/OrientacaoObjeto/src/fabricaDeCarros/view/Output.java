@@ -22,4 +22,8 @@ public class Output {
     public static void displayWarningCarsNotCreated() {
         JOptionPane.showMessageDialog(null, "Nenhum carro foi cadastrado!");
     }
+
+    public static void displayLicensePlateExists(){
+        JOptionPane.showMessageDialog(null, "Essa placa já existe");
+    }
 }
