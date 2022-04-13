@@ -3,10 +3,10 @@ package materialDeConstrucao.view;
 import javax.swing.*;
 
 public class Input {
-    public static int requestMenu() {
-        String[] options = {"Registro de Produtos", "Estoque de Produtos", "Cupons Fiscais", "Sair do programa"};
+    public static int requestMenu(String[] options, String title) {
+
         JComboBox<String> menu = new JComboBox<>(options);
-        JOptionPane.showConfirmDialog(null, menu, "Material de construcao", JOptionPane.OK_CANCEL_OPTION);
+        JOptionPane.showConfirmDialog(null, menu, title, JOptionPane.OK_CANCEL_OPTION);
         return menu.getSelectedIndex();
     }
 

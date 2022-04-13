@@ -9,7 +9,8 @@ public class Control {
         int optionMenu = 0;
 
         do {
-            optionMenu = Input.requestMenu();
+            String[] options = {"Registro de Produtos", "Estoque de Produtos", "Cupons Fiscais", "Sair do programa"};
+            optionMenu = Input.requestMenu(options);
             int optionSubMenu = Input.requestSubMenu(optionMenu);
             switch (optionMenu) {
                 case 0: {

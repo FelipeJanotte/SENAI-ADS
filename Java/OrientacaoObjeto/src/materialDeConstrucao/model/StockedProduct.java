@@ -55,9 +55,8 @@ public class StockedProduct {
             // Add each stock product to menu options
             menuOptions[products.indexOf(product)] = product.getDescription() + " | " + String.format("%.2f",product.getPrice()) + " | " + product.getQuantity();
         }
-        JComboBox<String> menu = new JComboBox<>(menuOptions);
-        JOptionPane.showConfirmDialog(null, menu, "Vender produto", JOptionPane.OK_CANCEL_OPTION);
-        Product productToSell = products.get(menu.getSelectedIndex()); // Get product by selected option
+        int productIndex = Input.requestMenu(menuOptions, "Vender Produtos");
+        Product productToSell = products.get(productIndex); // Get product by selected option
 
         int quantity = Input.requestProductQuantity("vender");
 
@@ -69,7 +68,7 @@ public class StockedProduct {
         } else if(productToSell.getQuantity() - quantity == 0){
             // Set the product's quantity to zero and remove from Stock
             productToSell.setQuantity(0);
-            products.remove(menu.getSelectedIndex());
+            products.remove(productIndex);
         } else {
             // Decrease product's quantity by selling
             productToSell.setQuantity(productToSell.getQuantity() - quantity);
