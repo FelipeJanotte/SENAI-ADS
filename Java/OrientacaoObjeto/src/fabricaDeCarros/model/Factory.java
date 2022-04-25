@@ -1,78 +1,56 @@
 package fabricaDeCarros.model;
 
-import fabricaDeCarros.view.*;
-
 import java.util.ArrayList;
 
 public class Factory {
-    static ArrayList<Car> cars = new ArrayList<>();
+    private static ArrayList<Car> cars = new ArrayList<>();
 
-    public static void createCar() {
-        int carsQnt = Input.requestManyCarsToCreate();
-
-        for( int i = 0; i < carsQnt; i++ ){
+    public static void createCar(String model, String serialCode, String color) {
             Car newCar = new Car();
 
-            String licensePlate = Input.requestLicensePlate((i+1));
-            while(verifyLicensePlateAlreadyExist(licensePlate)){
-                Output.displayLicensePlateExists();
-                licensePlate = Input.requestLicensePlate((i+1));
-            };
-            newCar.setLicensePlate(licensePlate);
-
-            String carModel = Input.requestCarDescription("modelo", (i+1));
-            newCar.setCarModel(carModel);
-
-            String color = Input.requestCarDescription("cor", (i+1));
+            newCar.setSerialCode(serialCode);
+            newCar.setCarModel(model);
             newCar.setCarColor(color);
 
             cars.add(newCar);
-        }
-
-        Output.displayCarsAddedToList(carsQnt);
     }
 
-    public static void sellCar() {
-        if(cars.isEmpty()) {
-            Output.displayWarningCarsNotCreated();
-            return;
-        }
-
-        String[] carOptionsMenu = new String[cars.size()];
-
-        for(int i = 0; i < cars.size(); i++) {
-            carOptionsMenu[i] = cars.get(i).getLicensePlate() + " | "
-                    + cars.get(i).getCarModel() + " | "
-                    + cars.get(i).getCarColor();
-        }
-
-        int carToSell = Input.requestCarToSell(carOptionsMenu);
+    public static void sellCar(int carToSell) {
         cars.remove(carToSell);
-
-        Output.displaySoldCar();
     }
 
-    public static void showCarInfos(){
-        if(cars.isEmpty()){
-            Output.displayWarningCarsNotCreated();
-            return;
-        }
+    public static String showCarInfos(){
+        String infos = "Modelo | Cor | Código Serial\n";
 
-        String infos = "Modelo | Cor | Placa\n";
         for(Car car : cars) {
-            infos += car.getCarModel() + " | " + car.getCarColor() + " | " + car.getLicensePlate() + "\n";
+            infos += car.getCarModel() + " | " + car.getCarColor() + " | " + car.getSerialCode() + "\n";
         }
 
-        Output.displayCarInfos(infos);
+        return infos;
     }
 
-    private static boolean verifyLicensePlateAlreadyExist(String licensePlate){
+    public static boolean verifySerialCodeAlreadyExist(String serialCode){
         for(Car car : cars) {
-            if(car.getLicensePlate().equals(licensePlate)) {
+            if(car.getSerialCode().equals(serialCode)) {
                 return true;
             }
         }
         return false;
     }
 
+    public static String[] createOptionsMenu() {
+        String[] carOptionsMenu = new String[cars.size()];
+
+        for(int i = 0; i < cars.size(); i++) {
+            carOptionsMenu[i] = cars.get(i).getSerialCode() + " | "
+                    + cars.get(i).getCarModel() + " | "
+                    + cars.get(i).getCarColor();
+        }
+
+        return carOptionsMenu;
+    }
+
+    public static boolean verifyCarsIsEmpty(){
+        return cars.isEmpty();
+    }
 }

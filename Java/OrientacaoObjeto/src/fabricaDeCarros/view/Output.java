@@ -23,7 +23,11 @@ public class Output {
         JOptionPane.showMessageDialog(null, "Nenhum carro foi cadastrado!");
     }
 
-    public static void displayLicensePlateExists(){
-        JOptionPane.showMessageDialog(null, "Essa placa já existe");
+    public static void displaySerialCodeExist(){
+        JOptionPane.showMessageDialog(null, "Esse código serial já existe");
+    }
+
+    public static void displayOperationCancelled(String operation) {
+        JOptionPane.showMessageDialog(null, operation + " foi cancelada!");
     }
 }

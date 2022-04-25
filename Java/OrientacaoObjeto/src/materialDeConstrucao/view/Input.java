@@ -47,7 +47,7 @@ public class Input {
         return price;
     }
 
-    public static int continueMenu(String title){
+    public static int requestContinueMenu(String title){
         String[] options = {"Sim", "Nao"};
         JComboBox<String> menu = new JComboBox<>(options);
         JOptionPane.showConfirmDialog(null, menu, title, JOptionPane.OK_CANCEL_OPTION);

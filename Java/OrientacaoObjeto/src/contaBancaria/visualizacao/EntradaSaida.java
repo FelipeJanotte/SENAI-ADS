@@ -42,11 +42,11 @@ public class EntradaSaida {
         return saque;
     }
 
-    public static void exibirDadosDaConta(String nomeDoTitular, String tipoDaConta, Double saldo) {
+    public static void exibirDadosDaConta(String[] dados) {
         JOptionPane.showMessageDialog(null, "" +
-                "Nome do titular: " + nomeDoTitular + "\n" +
-                "Tipo da conta: " + tipoDaConta + "\n" +
-                "Saldo: R$" + String.format("%.2f", saldo));
+                "Nome do titular: " + dados[0] + "\n" +
+                "Tipo da conta: " + dados[1] + "\n" +
+                "Saldo: R$" + dados[2]);
     }
 
     public static void exibirExtratoCompleto(ArrayList<Movimentacao> listaDeExtrato) {
@@ -55,11 +55,15 @@ public class EntradaSaida {
 
         for (Movimentacao extrato : listaDeExtrato) {
             listaString += extrato.getData() + " | " + extrato.getTipo() + " | " + String.format("%.2f", extrato.getValor()) + "\n";
-            total += extrato.getValor();
+            if(extrato.getTipo().equals("Saque")){
+                total -= extrato.getValor();
+            } else {
+                total += extrato.getValor();
+            }
         }
 
         String data = OffsetDateTime.now().getDayOfMonth() + "/" + OffsetDateTime.now().getMonthValue() + "/" + OffsetDateTime.now().getYear();
-        listaString += data + " | " + "TOTAL" + " | " + String.format("%.2f", total);
+        listaString += data + " | " + "SALDO EM CONTA" + " | " + String.format("%.2f", total);
         JOptionPane.showMessageDialog(null, listaString);
     }
 
@@ -75,7 +79,7 @@ public class EntradaSaida {
         }
 
         String data = OffsetDateTime.now().getDayOfMonth() + "/" + OffsetDateTime.now().getMonthValue() + "/" + OffsetDateTime.now().getYear();
-        listaString += data + " | " + "SALDO" + " | " + String.format("%.2f", total);
+        listaString += data + " | " + "SALDO EM CONTA" + " | " + String.format("%.2f", total);
 
         JOptionPane.showMessageDialog(null, listaString);
     }

@@ -3,13 +3,14 @@ package fabricaDeCarros.model;
 public class Car {
     // What we need to create a car? // O que precisamos para criar um carro?
     // * Identification. // Identificacao.
-        // ? licecensePlate. // Placa do carro
+        // ? licecensePlate. // Placa do carro.
+        // ? serialCode. // Código serial.
     // * Color.  // Cor.
     // * Model. // Modelo.
 
     private String carColor;
     private String carModel;
-    private String licensePlate;
+    private String serialCode;
 
     public void setCarColor(String carColor) {
         this.carColor = carColor;
@@ -27,12 +28,12 @@ public class Car {
         return carModel;
     }
 
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate.toLowerCase();
+    public void setSerialCode(String serialCode) {
+        this.serialCode = serialCode.toLowerCase();
     }
 
-    public String getLicensePlate() {
-        return licensePlate;
+    public String getSerialCode() {
+        return serialCode;
     }
 
 }

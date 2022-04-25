@@ -3,8 +3,6 @@ package contaBancaria.controle;
 import contaBancaria.modelo.Conta;
 import contaBancaria.visualizacao.EntradaSaida;
 
-import javax.swing.*;
-
 public class Controladora {
 
     public static void exibirMenu() {
@@ -27,31 +25,37 @@ public class Controladora {
                     }
 
                     conta.gerarSaldo("Deposito", deposito);
+                    EntradaSaida.exibirSucesso("Deposito");
+
                     break;
                 }
                 case 1: {
                     if(conta.getSaldo() == -1000){
                         EntradaSaida.exibirLimiteAtingido();
-                        break;
-                    }
+                    } else {
+                        double saque = EntradaSaida.solicitarInformacoesSaque();
+                        while(saque <= 0 || saque > conta.getSaldo() + 1000){
+                            if(saque <= 0){
+                                EntradaSaida.exibirInvalido("saque");
+                            } else {
+                                EntradaSaida.exibirLimiteAtingido();
+                            }
 
-                    double saque = EntradaSaida.solicitarInformacoesSaque();
-                    while(saque <= 0 || saque > conta.getSaldo() + 1000){
-                        if(saque <= 0){
-                            EntradaSaida.exibirInvalido("saque");
-                        } else {
-                            EntradaSaida.exibirLimiteAtingido();
+                            saque = EntradaSaida.solicitarInformacoesSaque();
                         }
 
-                        saque = EntradaSaida.solicitarInformacoesSaque();
+                        conta.gerarSaldo("Saque", saque);
+                        EntradaSaida.exibirSucesso("Saque");
+
                     }
 
-                    conta.gerarSaldo("Saque", saque);
+
                     break;
                 }
                 case 2: {
                     // Visualizar Dados da Conta
-                    conta.gerarDadosDaConta();
+                    String[] dados = conta.gerarDadosDaConta();
+                    EntradaSaida.exibirDadosDaConta(dados);
                     break;
                 }
                 case 3: {

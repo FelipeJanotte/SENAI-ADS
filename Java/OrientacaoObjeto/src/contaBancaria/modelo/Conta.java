@@ -63,22 +63,30 @@ public class Conta {
         movimentacao.setTipo(metodo);
         movimentacao.setValor(valor);
 
-        EntradaSaida.exibirSucesso(metodo);
         if(listaDeMovimentacao == null){
             listaDeMovimentacao = new ArrayList<>();
         }
         listaDeMovimentacao.add(movimentacao);
     }
 
-    public void gerarDadosDaConta() {
-        EntradaSaida.exibirDadosDaConta(titularDaConta, tipo, saldo);
+    public String[] gerarDadosDaConta() {
+        String[] dados = new String[]{titularDaConta, tipo, String.format("%.2f",saldo)};
+        return dados;
     }
 
     public ArrayList<Movimentacao> gerarExtrato(){
+        if(listaDeMovimentacao == null){
+            ArrayList<Movimentacao> listaVazia = new ArrayList<>();
+            return listaVazia;
+        }
         return listaDeMovimentacao;
     }
 
     public ArrayList<Movimentacao> gerarExtratoDepositos(){
+        if(listaDeMovimentacao == null){
+            ArrayList<Movimentacao> listaVazia = new ArrayList<>();
+            return listaVazia;
+        }
         ArrayList<Movimentacao> listaDeDepositos = new ArrayList<Movimentacao>();
         for(Movimentacao movimentacao: listaDeMovimentacao){
             if(movimentacao.getTipo().equals("Deposito")){
@@ -89,6 +97,10 @@ public class Conta {
     }
 
     public ArrayList<Movimentacao> gerarExtratoSaques(){
+        if(listaDeMovimentacao == null){
+            ArrayList<Movimentacao> listaVazia = new ArrayList<>();
+            return listaVazia;
+        }
         ArrayList<Movimentacao> listaDeSaques = new ArrayList<Movimentacao>();
         for(Movimentacao movimentacao: listaDeMovimentacao){
             if(movimentacao.getTipo().equals("Saque")){

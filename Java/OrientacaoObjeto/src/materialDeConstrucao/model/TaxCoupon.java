@@ -1,10 +1,8 @@
 package materialDeConstrucao.model;
 
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 
 public class TaxCoupon {
-    public static ArrayList<TaxCoupon> taxCoupons = new ArrayList<>();
 
     private String productDescription;
     private int productQuantity;

@@ -12,12 +12,20 @@ public class Input {
     }
 
     public static int requestManyCarsToCreate() {
-        int quantity = Integer.parseInt(JOptionPane.showInputDialog("Quantos carros desejas fabricar?"));
-        while(quantity <= 0) {
-            JOptionPane.showMessageDialog(null, "Quantidade inválida!");
-            quantity = Integer.parseInt(JOptionPane.showInputDialog("Quantos carros desejas fabricar?"));
+        String quantity = String.valueOf(JOptionPane.showInputDialog(null,
+                "Quantos carros desejas fabricar?", "Fabrica de carros", JOptionPane.INFORMATION_MESSAGE));
+        if(quantity.equals("null")){
+            return -1;
         }
-        return quantity;
+        while(Integer.parseInt(quantity) <= 0) {
+            JOptionPane.showMessageDialog(null, "Quantidade inválida!");
+            quantity = String.valueOf(JOptionPane.showInputDialog(null,
+                    "Quantos carros desejas fabricar?", "Fabrica de carros", JOptionPane.INFORMATION_MESSAGE));
+            if(quantity.equals("null")){
+                return -1;
+            }
+        }
+        return Integer.parseInt(quantity);
     }
 
     public static String requestCarDescription(String method, int index){
@@ -27,12 +35,11 @@ public class Input {
 
     public static int requestCarToSell(String[] carsOptionsMenu){
         JComboBox<String> carsMenu = new JComboBox<>(carsOptionsMenu);
-        JOptionPane.showConfirmDialog(null, carsMenu, "Selecione o carro para ser excluido", JOptionPane.OK_CANCEL_OPTION);
+        int option = JOptionPane.showConfirmDialog(null, carsMenu, "Selecione o carro para ser excluido",
+                JOptionPane.OK_CANCEL_OPTION);
+        if(option == 2){
+            return -1;
+        }
         return carsMenu.getSelectedIndex();
-    }
-
-    public static String requestLicensePlate(int index){
-        String licensePlate = JOptionPane.showInputDialog(null, "Qual a placa do " + index + "o carro?");
-        return licensePlate;
     }
 }
