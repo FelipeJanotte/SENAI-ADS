@@ -79,7 +79,7 @@ public class EntradaSaida {
         }
 
         String data = OffsetDateTime.now().getDayOfMonth() + "/" + OffsetDateTime.now().getMonthValue() + "/" + OffsetDateTime.now().getYear();
-        listaString += data + " | " + "SALDO EM CONTA" + " | " + String.format("%.2f", total);
+        listaString += data + " | " + "TOTAL" + " | " + String.format("%.2f", total);
 
         JOptionPane.showMessageDialog(null, listaString);
     }
