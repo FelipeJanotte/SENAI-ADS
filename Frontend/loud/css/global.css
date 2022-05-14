@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  font-size: 16px;
+  font-family: "Blinker", sans-serif;
+  font-weight: 400;
+
+  --background-100: #141414;
+  --background-80: #141414cc;
+  --background-50: #14141480;
+  --background-30: #14141414;
+  --gray: #1f1f1f;
+
+  --primary-color: #13ff00;
+}
+
+* {
+  /* RESET */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background-100);
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+}
+
+button {
+  background: var(--primary-color);
+  border: none;
+  font-size: 1.25rem; /* 20px */
+  padding: 0.5rem 1rem; /* 8px 16px */
+  border-radius: 3px;
+  font-weight: 600;
+  color: var(--background-100);
+}
+
+input {
+  background: transparent;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}

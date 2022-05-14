@@ -1,0 +1,45 @@
+footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem;
+  gap: 1rem;
+}
+
+footer .socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1.25rem;
+}
+
+footer svg {
+  width: 25px;
+  height: 25px;
+}
+
+footer span {
+  color: #454545;
+  font-weight: 600;
+}
+
+footer span a {
+  color: #454545;
+  text-decoration: none;
+}
+
+footer span a:hover {
+  color: var(--primary-color);
+}
+
+footer a:hover svg path,
+footer a:hover svg polygon,
+footer a:hover svg circle,
+footer a:hover svg rect:not(:first-child) {
+  stroke: var(--primary-color);
+}
+
+footer a.instagram:hover svg :last-child {
+  fill: var(--primary-color);
+}
