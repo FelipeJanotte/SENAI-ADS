@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/loud/css/global.css" />
+<link rel="stylesheet" href="/loud/css/header.css" />
+<link rel="stylesheet" href="/loud/css/pages/index.css" />
+<link rel="stylesheet" href="/loud/css/footer.css" />
+<link rel="shortcut icon" href="/loud/assets/logo-no-title.svg"
+	type="image/x-icon" />
+<title>LOUD</title>
+</head>
+<body>
+	<header class="header">
+
+	</header>
+	<main>
+		<section class="we-are-loud">
+			<div class="we-are-loud-content">
+				<h1>LOUD</h1>
+				<span>WE ARE LOUD!</span>
+			</div>
+		</section>
+		<section class="about">
+			<div class="about-content">
+				<h3 class="about-title">QUEM SOMOS</h3>
+				<div class="about-text">
+					<p>Nascemos do desejo de fazer diferente as coisas que todo
+						mundo fazia.</p>
+					<a href="/pages/about.html">SAIBA MAIS</a>
+				</div>
+			</div>
+		</section>
+		<section class="team">
+			<div class="team-content">
+				<h3 class="team-title">NOSSOS TIMES</h3>
+				<div class="team-text">
+					<p>Conheça nossos times dos diversos cenários de esports.</p>
+					<a href="/pages/team.html">VER MAIS</a>
+				</div>
+			</div>
+		</section>
+		<section class="contact">
+			<h3>CONTATO</h3>
+			<form onsubmit="return valideteForm()" action="#">
+				<label for="name">SEU NOME</label>
+				<div class="inputs">
+					<input onchange="removeInvalidMessage('name')" id="name"
+						type="text" />
+					<p>Preencha o campo corretamente!</p>
+				</div>
+				<label for="email">SEU EMAIL</label>
+				<div class="inputs">
+					<input onchange="removeInvalidMessage('email')" id="email"
+						type="email" />
+					<p>Preencha o campo corretamente!</p>
+				</div>
+				<label for="reason">MOTIVO DO CONTATO</label>
+
+				<div class="reason">
+					<select id="reason-select">
+						<option disabled selected value="">--</option>
+						<option value="doubt">TENHO UMA DÚVIDA</option>
+						<option value="donate">QUERO APOIAR O TIME</option>
+						<option value="integrate">QUERO FAZER PARTE DO TIME</option>
+					</select>
+
+					<div class="reason-message">
+						<textarea rows="10" cols="100" placeholder="MENSAGEM"></textarea>
+					</div>
+
+					<p>Preencha o campo corretamente!</p>
+				</div>
+				<div class="gender">
+					<span>SEXO</span>
+					<div class="gender-content">
+						<div class="gender-male">
+							<label for="gender-male">MASCULINO</label> <input
+								onchange="removeInvalidMessage('gender')" id="gender-male"
+								name="gender" type="radio" />
+						</div>
+						<div class="gender-female">
+							<label for="gender-female">FEMININO</label> <input
+								id="gender-female" onchange="removeInvalidMessage('gender')"
+								name="gender" type="radio" />
+						</div>
+					</div>
+					<p>Preencha o campo corretamente!</p>
+				</div>
+				<div class="terms">
+					<label for="terms-checkbox">CONCORDO QUE
+						MEUS DADOS INFORMADOS PODERÃO SER UTILIZADO EM PESQUISAS FUTURAS</label> <input
+						onchange="removeInvalidMessage('terms-checkbox')"
+						id="terms-checkbox" type="checkbox" />
+				</div>
+				<p class="term-invalid-text">Você precisa concordar com esse
+					campo!</p>
+				<button type="submit">ENVIAR</button>
+			</form>
+		</section>
+	</main>
+	<footer class="footer">
+		
+	</footer>
+
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		crossorigin="anonymous"></script>
+	<script src="/loud/js/app.js"></script>
+</body>
+</html>
+
+<!-- 
+  IMAGENS PEGAS NO SITE OFICIAL DA LOUD (https://loud.gg/)
+  ÍCONES PEGOS NA BIBLIOTECA PHOSPHOR (https://phosphoricons.com/)
+-->

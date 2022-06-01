@@ -22,12 +22,7 @@ public class Main {
 			} else {
 				verifyWinner(table, player);
 				verifyDraw(table);
-				if (player == "X") {
-					player = "O";
-				}
-				else {
-					player =  "X";
-				}
+				player = changePlayer(player);
 			}
 
 		} while (!winner);
