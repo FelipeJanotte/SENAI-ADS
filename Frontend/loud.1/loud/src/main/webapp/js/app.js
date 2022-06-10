@@ -75,5 +75,4 @@ function removeInvalidMessage(el) {
 $(document).ready(function() {
 	$("footer").load("/loud/pages/general/footer.html");
 	$("header").load("/loud/pages/general/header.html");
-	$("footer").load("/loud/pages/general/footer.html");
 })

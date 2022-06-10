@@ -1,0 +1,25 @@
+:root {
+  --darker-blue: #15153f;
+  --dark-blue: #1d1e53;
+  --background: #9ea8e8;
+  --opacity: 0.8;
+}
+
+* {
+  /* RESET CSS */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+button,
+a {
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}

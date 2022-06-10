@@ -1,0 +1,109 @@
+@import url(./global.css);
+
+body {
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 10px;
+
+  padding: 3rem 2rem;
+  gap: 2rem;
+
+  width: 20rem;
+  height: 25rem;
+
+  color: white;
+  background: var(--darker-blue);
+}
+
+form h3 {
+  font-size: 2rem;
+  position: relative;
+}
+
+form h3::after {
+  content: "";
+  background: white;
+  border-radius: 999999px;
+  width: 110%;
+  height: 4px;
+
+  position: absolute;
+  bottom: -5px;
+  left: -5%;
+}
+
+form .inputs,
+form .buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  width: 100%;
+}
+
+form input {
+  padding: 0.5rem 1rem;
+  background: #ffffff4c;
+  border: none;
+  color: white;
+
+  width: 100%;
+}
+
+form input::placeholder {
+  color: white;
+}
+
+form a {
+  color: white;
+}
+
+form button {
+  padding: 0.75rem 3rem;
+  border-radius: 999999px;
+  background: white;
+}
+
+form a:hover,
+form button:hover {
+  filter: brightness(0.8);
+}
+
+.login {
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.login::after {
+  content: "";
+
+  position: absolute;
+  /* background: var(--dark-blue); */
+  background-color: red;
+
+  width: 40rem;
+  height: 40rem;
+
+  z-index: 0;
+
+  top: 0;
+  left: 30%;
+
+  border-top: solid 2px blue;
+
+  top: 0;
+
+  transform: rotate(38deg);
+
+  /* transform: translate(-50%, -50%) rotate(45deg); */
+}
